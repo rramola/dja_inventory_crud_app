@@ -176,13 +176,13 @@ class TestInventory(TestCase):
             )
         
         item_attribute_found_search_dict = {
-            # "brand": "STP",
-            # "name": "H6",
-            # "quantity": 5,
-            # "price": 98,
-            # "brand": "Duralast Gold",
+            "brand": "STP",
+            "name": "H6",
+            "quantity": 5,
+            "price": 98,
+            "brand": "Duralast Gold",
             "identifier": "Tires", 
-            # "sdfhsadf": "dsfgkj"           
+            "sdfhsadf": "dsfgkj"           
         }
 
         find_items = models.filter_items(item_attribute_found_search_dict)

@@ -19,8 +19,9 @@ def all_items():
     return Inventory.objects.all()
 
 def filter_items(search_dict):
+    items = Inventory.objects.all()
     for key, value in search_dict.items():
         try:
-            return Inventory.objects.get(**{key: value})
+            return items.filter(**{key: value})
         except:
             return None
