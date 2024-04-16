@@ -17,7 +17,7 @@ Additionally, these helper functions should unit tests that help make sure there
 
 
 
-INVENTORY MANAGEMEN CRUD APP
+INVENTORY MANAGEMENT CRUD APP
 -----------------------------
 Model: Define a class to represent items in your inventory. Each item could have attributes such as name, description, quantity, price, and unique identifier.
 

@@ -17,3 +17,10 @@ def create_item(brand,name,description,quantity,price,identifier):
 
 def all_items():
     return Inventory.objects.all()
+
+def filter_items(search_dict):
+    for key, value in search_dict.items():
+        try:
+            return Inventory.objects.get(**{key: value})
+        except:
+            return None
