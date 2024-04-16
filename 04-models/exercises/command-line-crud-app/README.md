@@ -14,3 +14,19 @@ You should create a Model and helper functions that allow you to:
 Additionally, these helper functions should unit tests that help make sure there aren't bugs.
 
 - [ ] Each helper function is tested
+
+
+
+INVENTORY MANAGEMEN CRUD APP
+-----------------------------
+Model: Define a class to represent items in your inventory. Each item could have attributes such as name, description, quantity, price, and unique identifier.
+
+Helper Functions:
+
+Create: Function to add new items to your inventory.
+Read All: Function to display all items in your inventory.
+Read Filtered: Function to display items that satisfy a specific filter (e.g., items with a certain quantity or price range).
+Read Single: Function to display a single item based on its unique identifier.
+Update: Function to modify an existing item in your inventory.
+Delete: Function to remove an item from your inventory.
+Unit Tests: Write unit tests for each of the helper functions to ensure they behave as expected and handle edge cases properly.
