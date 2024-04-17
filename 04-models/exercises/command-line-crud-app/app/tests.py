@@ -114,7 +114,11 @@ class TestInventory(TestCase):
             self.assertEqual(data["price"], item.price)
             self.assertEqual(data["identifier"], item.identifier)
 
-    def test_sort_inventory_by_attribute_and_name(self):
+    def test_search_inventory(self):
+
+
+        ######## lIST OF INVENTORY ITEMS TO BE CREATED
+
         inventory_data = [
             {
                 "brand": "Uniroyal",
@@ -174,6 +178,12 @@ class TestInventory(TestCase):
             },
         ]
 
+
+
+
+
+       ######CREATE INVENTORY ITEMS
+        
         for item in inventory_data:
             models.create_item(
                 item["brand"],
@@ -184,64 +194,27 @@ class TestInventory(TestCase):
                 item["identifier"],
             )
 
+
+        ########## DICTIONARY OF SEARCH PARAMETERS
+
         item_attribute_found_search_dict = {
             "name": "H6 DLG",
             "quantity": 5,
             "brand": "STP",
             "identifier": "Tires",
-            "price": 166,
+            "price": 29,
             "asf;djasdf;j": ";kdf;asf",
             "dsrf": "asdfasf",
         }
-        keys = item_attribute_found_search_dict.keys()
-        values = item_attribute_found_search_dict.values()
-        # for key, value in item_attribute_found_search_dict:
-        #     print(key)
-        #     print(value)
-        item_list = []
-        list_two = []
-        inventory_items = models.all_items()
 
-        for item in item_attribute_found_search_dict.items():
-            find_items = models.filter_items(item[0], item[1])
-            item_list.append(find_items)
-        for item in item_list:
-            if item != None:
-                list_two.append("found")
-            if item == None:
-                list_two.append("Not Found")
-        print(list_two)
-        # for each_model_object in item_list:
-        #     if each_model_object != None:
-        #         list_two.append("found!")
-        # extracted_data_from_model_objects = each_model_object.values()
-        # for key_value_pair in extracted_data_from_model_objects:
-        #     get_values = key_value_pair.values()
-        #     list_one.append(get_values)
-        #     if each_model_object == None:
-        #         list_one.append("Not Found")
-        # print(list_one)
-        #     for each in get_values:
-        #         list_one.append(each)
-        # for item in list_one:
-        #     print(item[1:])
-        # print(list_one)
-        # for item in inventory_data:
-        #     y = []
-        #     for v in item.values():
-        #         y.append(v)
-        #     for item in y:
-        #         z.append(item)
-        # for item in list_one[1:]:
-        #     list_two.append(item)
-        # if list_two == list_one[1:]:
 
-        # print(list_one)
-        # print(list_two)
-        # # print(key)
-        # print(value)
-        #     print(ite)
-        #     if each_item.values("id") in value:
-        # print("yay")
-        # print(list_one)
-        # print(x)
+        ######### FOR EACH KEY,VALUE PAIR IN THE DICTIONARY, PASS THE KEY AND VALUE TO THE FILTER_ITEMS FUNCTION IN MODELS.
+
+        for key, value in item_attribute_found_search_dict.items():
+            items = models.filter_items(key, value)
+            if items == None:
+                self.assertIsNone(items)
+            else:
+                for item in items:
+                    print(item.name)
+                    self.assertEqual(item.description, models.Inventory.objects.get(pk=item.id).description)

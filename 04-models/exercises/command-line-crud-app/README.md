@@ -30,3 +30,57 @@ Read Single: Function to display a single item based on its unique identifier.
 Update: Function to modify an existing item in your inventory.
 Delete: Function to remove an item from your inventory.
 Unit Tests: Write unit tests for each of the helper functions to ensure they behave as expected and handle edge cases properly.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ # for each_model_object in item_list:
+        #     if each_model_object != None:
+        #         list_two.append("found!")
+        # extracted_data_from_model_objects = each_model_object.values()
+        # for key_value_pair in extracted_data_from_model_objects:
+        #     get_values = key_value_pair.values()
+        #     list_one.append(get_values)
+        #     if each_model_object == None:
+        #         list_one.append("Not Found")
+        # print(list_one)
+        #     for each in get_values:
+        #         list_one.append(each)
+        # for item in list_one:
+        #     print(item[1:])
+        # print(list_one)
+        # for item in inventory_data:
+        #     y = []
+        #     for v in item.values():
+        #         y.append(v)
+        #     for item in y:
+        #         z.append(item)
+        # for item in list_one[1:]:
+        #     list_two.append(item)
+        # if list_two == list_one[1:]:
+
+        # print(list_one)
+        # print(list_two)
+        # # print(key)
+        # print(value)
+        #     print(ite)
+        #     if each_item.values("id") in value:
+        # print("yay")
+        # print(list_one)
+        # print(x)
