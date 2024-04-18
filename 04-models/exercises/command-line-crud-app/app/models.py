@@ -30,9 +30,13 @@ def all_items():
 
 
 def filter_items(key, value):
-    # INSTEAD OF CREATING INDIVIDUAL FUNCTIONS TO SEARCH THROUGH SPECIFIC OBJECT PROPERTIES
-    # ONE FUNCTION IS USED THAT CAN SEARCH BASED ON WHATEVER PROPERTY NAME AND PROPERTY VALUE IS PASSED TO IT
-    # THIS IS DONE BY UNPACKING THE KEY, VALUE PAIR INTO A KEYWORD ARGUMENT USING **
+    # INSTEAD OF CREATING INDIVIDUAL FUNCTIONS TO 
+    # SEARCH THROUGH SPECIFIC OBJECT PROPERTIES
+    # ONE FUNCTION IS USED THAT CAN SEARCH BASED ON 
+    # WHATEVER PROPERTY NAME AND PROPERTY VALUE IS 
+    # PASSED TO IT
+    # THIS IS DONE BY UNPACKING THE KEY, VALUE PAIR 
+    # INTO A KEYWORD ARGUMENT USING **
     # THE FUNCTION NOW USES Inventory.objects.filter(key=value)
     # INSTEAD OF USING Inventory.objects.get(name = "battery")
     # THIS ALLOWS THE SEARCH TO BE MORE FLEXIBLE 
@@ -42,3 +46,14 @@ def filter_items(key, value):
         return item
     except:
         return None
+
+
+def update_item(search_name, new_price):
+    item = Inventory.objects.get(name = search_name)
+    item.price = new_price
+    item.save()
+    return item
+
+def delete_item(search_name):
+    item = Inventory.objects.get(name = search_name)
+    item.delete()
