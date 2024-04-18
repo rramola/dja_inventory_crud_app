@@ -1,6 +1,6 @@
 from django.test import TestCase
 from app import models
-
+import pytest
 
 class TestInventory(TestCase):
         def test_can_create_inventory_item(self):
@@ -295,6 +295,9 @@ class TestInventory(TestCase):
 
                 updated_item = models.update_item("Defender2", 45)
                 self.assertEqual(updated_item.price, 45)
+                with pytest.raises(ValueError):
+                        models.update_item("askfhsaife", 3453)
+
                 
 
 
@@ -378,5 +381,7 @@ class TestInventory(TestCase):
                                 item["identifier"],
                         )
 
-                deleted_item = models.delete_item("Serpentine Belt")
+                models.delete_item("Serpentine Belt")
                 self.assertEqual(len(models.all_items()), 6)
+                with pytest.raises(ValueError):
+                        models.delete_item("asfeawsf")

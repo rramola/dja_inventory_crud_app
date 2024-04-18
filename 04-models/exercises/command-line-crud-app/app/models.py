@@ -49,11 +49,17 @@ def filter_items(key, value):
 
 
 def update_item(search_name, new_price):
-    item = Inventory.objects.get(name = search_name)
-    item.price = new_price
-    item.save()
-    return item
+    try:
+        item = Inventory.objects.get(name = search_name)
+        item.price = new_price
+        item.save()
+        return item
+    except:
+        raise ValueError
 
 def delete_item(search_name):
-    item = Inventory.objects.get(name = search_name)
-    item.delete()
+    try:
+        item = Inventory.objects.get(name = search_name)
+        item.delete()
+    except:
+        raise ValueError
